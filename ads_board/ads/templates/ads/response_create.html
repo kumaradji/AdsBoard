@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create Response</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
+
+
+<!--{% block title %}-->
+<!--{{ response_create }}-->
+<!--{% endblock title %}-->
+
+<!--{% block response_text %}-->
+<!--<div class="col-lg-6">-->
+<!--        <form class="form-horizontal form_middle" method="post">-->
+<!--            {% csrf_token %}-->
+<!--                {{ form.non_field_errors }}-->
+<!--            <div class="fieldWrapper">-->
+<!--                {{ form.text.errors }}-->
+<!--                <label for="{{ form.text.id_for_label}}">Text</label>-->
+<!--                {{ form.text }}-->
+<!--            </div>-->
+<!--            <input class="btn btn-primary" type="submit" value="Save" />-->
+<!--        </form>-->
+<!--</div>-->
+<!--{% endblock response_text %}-->

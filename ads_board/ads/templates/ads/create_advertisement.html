@@ -1,0 +1,43 @@
+<!-- create_advertisement.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Create Advert</h2>
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea name="content" id="content" class="form-control" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select name="category" id="category" class="form-control" required>
+        <option value="" selected disabled>Select category</option>
+        {% for choice in category_choices %}
+          <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" class="form-control-file">
+    </div>
+
+    <div class="form-group">
+      <label for="video">Video</label>
+      <input type="text" name="video" id="video" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+  </form>
+{% endblock %}

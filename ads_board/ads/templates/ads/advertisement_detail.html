@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Advert Detail</h1>
+    <h2>Title: {{ advertisement.title }}</h2>
+    <p>Content: {{ advertisement.content }}</p>
+    <p>Category: {{ advertisement.category }}</p>
+    <p>Posted by: {{ advertisement.user.username }}</p>
+    {% if advertisement.image %}
+        <img src="{{ advertisement.image.url }}" alt="Advert Image" width="200">
+    {% endif %}
+    {% if advertisement.video %}
+        <video src="{{ advertisement.video }}" controls></video>
+    {% endif %}
+{% endblock %}

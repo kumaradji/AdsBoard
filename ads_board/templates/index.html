@@ -1,0 +1,35 @@
+<!-- Вы можете использовать этот объединенный шаблон
+в ваших представлениях, расширяя его при помощи команды
+{% extends 'index.html' %} и заполняя блоки содержимого
+при помощи команды {% block response_text %}{% endblock %}.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>My Website</h1>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2023 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html>
